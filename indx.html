@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Login Form</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      height: 100vh;
+      background-color: #0e0e0e;
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    form {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      border-radius: 25px;
+      padding: 40px;
+      width: 320px;
+      box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 30px;
+      font-size: 26px;
+      color: #f1f1f1;
+    }
+
+    label {
+      margin-top: 15px;
+      margin-bottom: 5px;
+      font-size: 14px;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="password"] {
+      width: 100%;
+      padding: 10px 12px;
+      border: none;
+      border-radius: 8px;
+      outline: none;
+      background-color: #ffffffdd;
+      color: #000;
+      font-size: 14px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    }
+
+    input::placeholder {
+      color: #555;
+    }
+
+    .btns {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 25px;
+    }
+
+    .btns input {
+      width: 48%;
+      padding: 10px;
+      border: none;
+      border-radius: 8px;
+      cursor:pointer;
+      font-weight: bold;
+      transition: 0.3s ease;
+    }
+
+    .btns input[type="submit"] {
+      background-color: #28a745;
+      color: white;
+    }
+
+    .btns input[type="submit"]:hover {
+      background-color: #218838;
+    }
+
+    .btns input[type="reset"] {
+      background-color: #dc3545;
+      color: white;
+    }
+
+    .btns input[type="reset"]:hover {
+      background-color: #c82333;
+    }
+  </style>
+</head>
+<body>
+  <form id="loginForm">
+    <h1>Login Form</h1>
+    <label for="name">Name</label>
+    <input type="text" id="name" placeholder="Enter your name..." required />
+    <br><br>
+
+    <label for="email">Email</label>
+    <input type="email" id="email" placeholder="Enter your email..." required />
+    <br><br>
+
+    <label for="password">Password</label>
+    <input type="password" id="password" placeholder="Enter your password..." required />
+
+    <div class="btns">
+      <input type="submit" value="Submit" />
+      <input type="reset" value="Clear" />
+    </div>
+  </form>
+
+  <script>
+    const form = document.getElementById('loginForm');
+
+    form.addEventListener('submit', function(e) {
+      e.preventDefault(); 
+
+      const name = document.getElementById('name').value;
+      const email = document.getElementById('email').value;
+      const password = document.getElementById('password').value;
+
+      localStorage.setItem('user_name', name);
+      localStorage.setItem('user_email', email);
+      localStorage.setItem('user_password', password);
+
+      alert('Data saved to localStorage!');
+      form.reset();
+    });
+  </script>
+</body>
+</html>
