@@ -13,4 +13,5 @@ form.addEventListener('submit', function(e) {
 
   alert('Data saved to localStorage!');
   form.reset();
+  window.location.href = 'index.html';
 });
