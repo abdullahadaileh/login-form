@@ -92,4 +92,7 @@ body {
     height: 100%;
     background: black;
   }
-  
+  .back{
+    text-decoration: none;
+    color: white;
+  }

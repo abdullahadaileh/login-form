@@ -11,10 +11,21 @@ form.addEventListener('submit', function(e) {
   localStorage.setItem('user_email', email);
   localStorage.setItem('user_password', password);
 
-  alert('Data saved to localStorage!');
-  form.reset();
-  window.location.href = 'index.html';
+  Swal.fire({
+    title: 'Saved!',
+    text: 'Data was stored successfully.',
+    icon: 'success',
+    background: '#111',
+    color: '#fff',
+    confirmButtonColor: '#28a745',
+    confirmButtonText: 'continue'
+  }).then(() => {
+    form.reset();
+    window.location.href = 'index.html';
+  });
 });
+
+
 const canvas = document.getElementById('stars');
 const ctx = canvas.getContext('2d');
 
@@ -38,9 +49,8 @@ function drawStars() {
   ctx.fillStyle = "white";
 
   stars.forEach(star => {
-    ctx.beginPath();
-    ctx.arc(star.x, star.y, star.radius, 0, Math.PI * 2);
-    ctx.fill();
+    ctx.font = `${star.radius * 10}px Arial`;
+    ctx.fillText('📷', star.x, star.y);
 
     star.y += star.speed;
     if (star.y > canvas.height) {
