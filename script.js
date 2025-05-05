@@ -50,7 +50,7 @@ function drawStars() {
 
   stars.forEach(star => {
     ctx.font = `${star.radius * 10}px Arial`;
-    ctx.fillText('📷', star.x, star.y);
+    ctx.fillText('.', star.x, star.y);
 
     star.y += star.speed;
     if (star.y > canvas.height) {
